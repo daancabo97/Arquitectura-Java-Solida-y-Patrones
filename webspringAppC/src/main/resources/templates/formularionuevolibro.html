@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Libro</title>
+</head>
+<body>
+
+<h2>Formulario de Libro</h2>
+<form method="post" action="/controlador/insertarlibro">
+    <label for="isbn">ISBN:</label>
+    <input type="text" name="isbn" required><br/>
+
+    <label for="titulo">Titulo:</label>
+    <input type="text" name="titulo" required><br/>
+
+    <label for="categoria">Categoria:</label>
+   <select name='categoria'>
+			<option th:each="categoria : ${listaCategorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
+	</select>
+	<input type="hidden" name="accion" value="insertarlibro"/>
+    <input type="submit" value="Guardar Libro">
+</form>
+
+</body>
+</html>
+
